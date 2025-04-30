@@ -2,7 +2,7 @@
 
 <div align="center">
     
-*A Comprehensive Digital Learning Platform with Admin and User Management*
+*A Comprehensive E-learning Mobile Application with Admin and User Management*
 
 [Features](#features) · [Installation](#installation) · [Documentation](#documentation) · [Contact](#contact)
 
