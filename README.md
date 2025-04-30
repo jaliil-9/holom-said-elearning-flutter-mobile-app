@@ -74,7 +74,7 @@ Holom Said is an educational and intuitive e-learning platform built with Flutte
 
 ```bash
 # Clone the repository
-git clone [your-repository-url]
+git clone https://github.com/jaliil-9/holom-said-elearning-flutter-mobile-app.git
 
 # Navigate to project directory
 cd holom_said
