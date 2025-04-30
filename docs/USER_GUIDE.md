@@ -18,11 +18,10 @@
 #### Course Access
 1. Browse available courses
 2. Enroll in courses
-3. Track your progress
-4. Access course materials
+3. Access course materials
 
 #### Messaging
-- Contact trainers
+- Contact admins
 - Receive course updates
 - Get notifications
 
