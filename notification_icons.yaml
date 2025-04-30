@@ -1,0 +1,18 @@
+flutter_launcher_icons:
+  android: true
+  ios: false  # iOS uses app icon
+  image_path: "assets/icons/notification_icon_white.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/icons/notification_icon_colored.png"
+  android_notification_icon: "assets/icons/notification_icon_white.png"
+
+notification_icons:
+  android:
+    source_image: "assets/icons/notification_icon_white.png"
+    target_platform: android
+    sizes:
+      - 24  # mdpi
+      - 36  # hdpi
+      - 48  # xhdpi
+      - 72  # xxhdpi
+      - 96  # xxxhdpi

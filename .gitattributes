@@ -1,0 +1,40 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Dart files
+*.dart text diff=dart
+
+# Flutter/Dart specific
+*.freezed.dart linguist-generated=true
+*.g.dart linguist-generated=true
+*.gr.dart linguist-generated=true
+
+# Android files
+*.xml text
+*.gradle text
+*.properties text
+gradlew.bat text eol=crlf
+
+# iOS files
+*.pbxproj merge=union
+*.storyboard merge=union
+*.xib merge=union
+*.strings text diff=localizablestrings
+
+# Images
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.flv binary
+*.fla binary
+*.swf binary
+*.gz binary
+*.zip binary
+*.pdf binary
+*.ez binary
+*.bz2 binary
+*.swp binary

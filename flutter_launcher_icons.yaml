@@ -1,0 +1,25 @@
+# flutter pub run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: "assets/logo/happy_dream_logo.png"
+  android: "launcher_icon"
+  min_sdk_android: 21
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/logo/happy_dream_logo.png"
+
+  ios: true
+  remove_alpha_channel_ios: true
+
+  web:
+    generate: true
+    image_path: "assets/logo/happy_dream_logo.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+
+  windows:
+    generate: true
+    image_path: "assets/logo/happy_dream_logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+
+  macos:
+    generate: true
+    image_path: "assets/logo/happy_dream_logo.png"
