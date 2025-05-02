@@ -25,7 +25,7 @@ Holom Said is an educational and intuitive e-learning platform built with Flutte
         </details>
       </td>
       <td align="center" width="50%">
-        <strong>User Features</strong><br>
+        <strong>Users Features</strong><br>
         <details>
           <summary>Click to play</summary>
           <img src="assets/f2bb49f979814ff68e50544aa16d3929.gif" alt="User Interface Demo" width="100%">
