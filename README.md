@@ -12,6 +12,14 @@
 
 Holom Said is an educational and intuitive e-learning platform built with Flutter and Supabase, offering a seamless experience for both administrators and users. The platform features comprehensive course management, exams passing, user authentication, real-time messaging, and a robust admin dashboard for content management.
 
+## Demo Videos
+
+### Admin Features
+![Admin Dashboard Demo](assets/0e024cf004444f65b6cc63a3df47a83a.gif)
+
+### User Features
+![User Interface Demo](assets/f2bb49f979814ff68e50544aa16d3929.gif)
+
 ## Features
 
 ### 🎯 Core Capabilities
