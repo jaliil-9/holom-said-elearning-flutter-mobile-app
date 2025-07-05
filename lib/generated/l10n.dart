@@ -2764,6 +2764,71 @@ class S {
   String get needHelp {
     return Intl.message('Need Help?', name: 'needHelp', desc: '', args: []);
   }
+
+  /// `Allow`
+  String get allow {
+    return Intl.message('Allow', name: 'allow', desc: '', args: []);
+  }
+
+  /// `Media Access`
+  String get mediaPermissionTitle {
+    return Intl.message(
+      'Media Access',
+      name: 'mediaPermissionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This app needs access to your media to allow you to select photos and videos.`
+  String get mediaPermissionBody {
+    return Intl.message(
+      'This app needs access to your media to allow you to select photos and videos.',
+      name: 'mediaPermissionBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Storage Access`
+  String get storagePermissionTitle {
+    return Intl.message(
+      'Storage Access',
+      name: 'storagePermissionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This app needs access to your storage to allow you to select files.`
+  String get storagePermissionBody {
+    return Intl.message(
+      'This app needs access to your storage to allow you to select files.',
+      name: 'storagePermissionBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications`
+  String get notificationPermissionTitle {
+    return Intl.message(
+      'Notifications',
+      name: 'notificationPermissionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This app needs to send you notifications to keep you updated.`
+  String get notificationPermissionBody {
+    return Intl.message(
+      'This app needs to send you notifications to keep you updated.',
+      name: 'notificationPermissionBody',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

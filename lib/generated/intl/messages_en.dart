@@ -58,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "admins": MessageLookupByLibrary.simpleMessage("Admins"),
     "all": MessageLookupByLibrary.simpleMessage("All"),
     "allMessages": MessageLookupByLibrary.simpleMessage("All Messages"),
+    "allow": MessageLookupByLibrary.simpleMessage("Allow"),
     "answers": MessageLookupByLibrary.simpleMessage("Answers"),
     "appSettings": MessageLookupByLibrary.simpleMessage("App Settings"),
     "appSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -311,8 +312,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "maritalStatus": MessageLookupByLibrary.simpleMessage("Marital Status"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage("Mark all as read"),
     "married": MessageLookupByLibrary.simpleMessage("Married"),
+    "mediaPermissionBody": MessageLookupByLibrary.simpleMessage(
+      "This app needs access to your media to allow you to select photos and videos.",
+    ),
     "mediaPermissionDenied": MessageLookupByLibrary.simpleMessage(
       "Media permission denied. You won\'t be able to select photos or videos.",
+    ),
+    "mediaPermissionTitle": MessageLookupByLibrary.simpleMessage(
+      "Media Access",
     ),
     "message": MessageLookupByLibrary.simpleMessage("Message"),
     "messageFrom": MessageLookupByLibrary.simpleMessage("Message from"),
@@ -364,6 +371,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noUsersAvailable": MessageLookupByLibrary.simpleMessage(
       "No users available",
+    ),
+    "notificationPermissionBody": MessageLookupByLibrary.simpleMessage(
+      "This app needs to send you notifications to keep you updated.",
+    ),
+    "notificationPermissionTitle": MessageLookupByLibrary.simpleMessage(
+      "Notifications",
     ),
     "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "notificationsPermissionDenied": MessageLookupByLibrary.simpleMessage(
@@ -508,8 +521,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "storageError": MessageLookupByLibrary.simpleMessage(
       "Error accessing storage. Please try again.",
     ),
+    "storagePermissionBody": MessageLookupByLibrary.simpleMessage(
+      "This app needs access to your storage to allow you to select files.",
+    ),
     "storagePermissionDenied": MessageLookupByLibrary.simpleMessage(
       "Storage permission denied. You won\'t be able to upload files.",
+    ),
+    "storagePermissionTitle": MessageLookupByLibrary.simpleMessage(
+      "Storage Access",
     ),
     "student": MessageLookupByLibrary.simpleMessage("Student"),
     "students": MessageLookupByLibrary.simpleMessage("Students"),

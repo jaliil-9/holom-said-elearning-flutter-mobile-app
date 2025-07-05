@@ -11,32 +11,38 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/providers/theme_provider.dart';
 import 'core/providers/locale_provider.dart';
 import 'core/utils/helper_methods/error.dart';
-import 'core/services/notification_service.dart';
 
 late final WidgetsBinding widgetsBinding;
 
 void main() async {
   widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // Load environment variables
-  await dotenv.load(fileName: ".env");
+  print('Before dotenv');
+  try {
+    await dotenv.load(fileName: ".env");
+    print('Loaded .env');
+  } catch (e) {
+    debugPrint('Warning: .env file not found or could not be loaded');
+  }
 
-  // Initialize Local Storage
+  print('Before GetStorage');
   await GetStorage.init();
+  print('GetStorage initialized');
 
-  // Initialize Supabase & Authentication Repository
+  print('Before Supabase');
   await Supabase.initialize(
-    url: dotenv.env['SUPABASE_URL']!,
-    anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
+    url: dotenv.env['SUPABASE_URL'] ?? '',
+    anonKey: dotenv.env['SUPABASE_ANON_KEY'] ?? '',
   );
+  print('Supabase initialized');
 
-  // Initialize notifications with Supabase client
-  await NotificationService.init(Supabase.instance.client);
+  print('Before NotificationService');
+  // await NotificationService.init(Supabase.instance.client);
+  print('NotificationService initialization moved to home screen');
 
-  // Remove splash screen after initialization
   FlutterNativeSplash.remove();
+  print('Splash removed');
 
   runApp(
     const ProviderScope(

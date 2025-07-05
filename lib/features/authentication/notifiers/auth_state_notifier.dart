@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:holom_said/core/utils/helper_methods/helpers.dart';
 import 'package:holom_said/core/utils/helper_methods/network.dart';
@@ -136,7 +135,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       final user = response.user;
       if (user == null) throw Exception('User not found');
 
-      final adminDomain = dotenv.env['ADMIN_EMAIL_DOMAIN'];
+      final adminDomain = "holomsaid.org";
       // Check email domain for role determination.
       if (user.email != null && user.email!.endsWith('@$adminDomain')) {
         state = AuthAuthenticatedAdmin(user);

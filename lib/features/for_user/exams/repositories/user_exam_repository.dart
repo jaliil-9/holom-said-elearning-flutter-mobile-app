@@ -146,10 +146,7 @@ class UserExamRepository {
       await _client
           .from('exams')
           .update({'stats': updatedStats}).eq('id', examId);
-
-      print('[DEBUG] Updated stats: $updatedStats');
     } catch (e) {
-      print('[ERROR] Failed to update exam stats: $e');
       rethrow;
     }
   }

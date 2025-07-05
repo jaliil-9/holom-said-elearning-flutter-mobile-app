@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path/path.dart' as p;
 import 'package:uuid/uuid.dart';
 
+import '../../../generated/l10n.dart';
+import '../../services/storage_service.dart';
 import '../../../features/for_admin/exams/models/exam_model.dart';
 import '../../../features/for_user/exams/models/user_exam_attempt.dart';
 
@@ -30,8 +32,13 @@ class Helpers {
         : const AssetImage('assets/images/user.jpg') as ImageProvider;
   }
 
-  static Future<String?> uploadImage() async {
+  static Future<String?> uploadImage(BuildContext context) async {
     try {
+      final hasPermission = await StorageService.requestStoragePermission(context);
+      if (!hasPermission) {
+        throw Exception(S.current.permissionRequiredMessage);
+      }
+
       final ImagePicker picker = ImagePicker();
       final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 

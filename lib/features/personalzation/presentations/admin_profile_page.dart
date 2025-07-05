@@ -186,7 +186,7 @@ class ProfilePage extends ConsumerWidget {
                                 value: notificationsEnabled,
                                 onChanged: (value) => ref
                                     .read(notificationProvider.notifier)
-                                    .toggleNotifications(),
+                                    .toggleNotifications(context),
                               ),
                             ],
                           ),

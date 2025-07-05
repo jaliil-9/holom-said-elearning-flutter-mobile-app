@@ -6,6 +6,7 @@ import 'package:holom_said/core/utils/validators.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../core/constants/colors.dart';
+import '../../../../core/services/storage_service.dart';
 import '../../../../generated/l10n.dart';
 import '../models/events_model.dart';
 import '../providers/events_provider.dart';
@@ -42,6 +43,9 @@ class _EventFormPageState extends ConsumerState<EventFormPage> {
   }
 
   Future<void> _pickImage() async {
+    final hasPermission = await StorageService.requestStoragePermission(context);
+    if (!hasPermission) return;
+
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 

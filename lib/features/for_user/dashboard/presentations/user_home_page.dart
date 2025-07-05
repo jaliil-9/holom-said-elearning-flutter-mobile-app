@@ -12,6 +12,8 @@ import 'package:holom_said/features/for_admin/dashboard/models/trainers_model.da
 import 'package:holom_said/features/messaging/presentations/user/user_chat_page.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:holom_said/core/services/notification_service.dart';
 import 'package:badges/badges.dart' as badges;
 import '../../../../core/constants/colors.dart';
 import '../../../../core/utils/widgets/custom_shimmer.dart';
@@ -37,6 +39,12 @@ class UserHomePage extends ConsumerStatefulWidget {
 }
 
 class _UserHomePageState extends ConsumerState<UserHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    NotificationService.init(Supabase.instance.client);
+  }
+
   @override
   Widget build(BuildContext context) {
     final userProfile = ref.watch(userProfileProvider);

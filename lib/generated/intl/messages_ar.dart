@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "admins": MessageLookupByLibrary.simpleMessage("المشرفين"),
     "all": MessageLookupByLibrary.simpleMessage("الكل"),
     "allMessages": MessageLookupByLibrary.simpleMessage("جميع الرسائل"),
+    "allow": MessageLookupByLibrary.simpleMessage("السماح"),
     "answers": MessageLookupByLibrary.simpleMessage("الإجابات"),
     "appSettings": MessageLookupByLibrary.simpleMessage("إعدادات التطبيق"),
     "appSubtitle": MessageLookupByLibrary.simpleMessage(
@@ -302,8 +303,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "maritalStatus": MessageLookupByLibrary.simpleMessage("الحالة الاجتماعية"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage("تحديد الكل كمقروء"),
     "married": MessageLookupByLibrary.simpleMessage("متزوج"),
+    "mediaPermissionBody": MessageLookupByLibrary.simpleMessage(
+      "يحتاج التطبيق إلى إذن للوصول إلى ملفات الوسائط",
+    ),
     "mediaPermissionDenied": MessageLookupByLibrary.simpleMessage(
       "تم رفض إذن الوسائط. لن تتمكن من اختيار الصور أو مقاطع الفيديو.",
+    ),
+    "mediaPermissionTitle": MessageLookupByLibrary.simpleMessage(
+      "إذن الوصول إلى الملفات",
     ),
     "message": MessageLookupByLibrary.simpleMessage("الرسالة"),
     "messageFrom": MessageLookupByLibrary.simpleMessage("رسالة من"),
@@ -358,6 +365,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "noUsersAvailable": MessageLookupByLibrary.simpleMessage(
       "لا يوجد مستخدمين متاحين",
+    ),
+    "notificationPermissionBody": MessageLookupByLibrary.simpleMessage(
+      "يحتاج التطبيق إلى إذن لإرسال الإشعارات",
+    ),
+    "notificationPermissionTitle": MessageLookupByLibrary.simpleMessage(
+      "إذن الإشعارات",
     ),
     "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "notificationsPermissionDenied": MessageLookupByLibrary.simpleMessage(
@@ -504,8 +517,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "storageError": MessageLookupByLibrary.simpleMessage(
       "خطأ في الوصول إلى التخزين. حاول مرة اخرى.",
     ),
+    "storagePermissionBody": MessageLookupByLibrary.simpleMessage(
+      "يحتاج التطبيق إلى إذن للوصول إلى التخزين",
+    ),
     "storagePermissionDenied": MessageLookupByLibrary.simpleMessage(
       "تم رفض إذن التخزين. لن تتمكن من رفع الملفات.",
+    ),
+    "storagePermissionTitle": MessageLookupByLibrary.simpleMessage(
+      "إذن الوصول إلى التخزين",
     ),
     "student": MessageLookupByLibrary.simpleMessage("طالب"),
     "students": MessageLookupByLibrary.simpleMessage("الطلاب"),

@@ -336,5 +336,12 @@
     "invalidSubscriptionCode": "Invalid subscription code",
     "subscriptionVerified": "Subscription verified successfully",
     "verificationError": "Verification error",
-    "needHelp": "Need Help?"
+    "needHelp": "Need Help?",
+    "allow": "Allow",
+    "mediaPermissionTitle": "Media Access",
+    "mediaPermissionBody": "This app needs access to your media to allow you to select photos and videos.",
+    "storagePermissionTitle": "Storage Access",
+    "storagePermissionBody": "This app needs access to your storage to allow you to select files.",
+    "notificationPermissionTitle": "Notifications",
+    "notificationPermissionBody": "This app needs to send you notifications to keep you updated."
 }

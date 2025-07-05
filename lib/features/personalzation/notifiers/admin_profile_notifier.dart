@@ -74,7 +74,8 @@ class AdminProfileNotifier extends BaseProfileNotifier {
         final currentProfilePicture = state.value?.profilePicture;
 
         // Upload image and get URL
-        final imageUrl = await Helpers.uploadImage();
+        final imageUrl =
+            await Helpers.uploadImage(ErrorUtils.navigatorKey.currentContext!);
         if (imageUrl == null) return state.value;
 
         // Update profile with new image URL

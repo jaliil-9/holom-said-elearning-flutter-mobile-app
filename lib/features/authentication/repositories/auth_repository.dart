@@ -1,6 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AuthRepository {
   final SupabaseClient _client = Supabase.instance.client;
@@ -40,8 +39,10 @@ class AuthRepository {
 
   Future<AuthResponse> loginWithGoogle() async {
     try {
-      final webClientId = dotenv.env['GOOGLE_WEB_CLIENT_ID'];
-      final iosClientId = dotenv.env['GOOGLE_IOS_CLIENT_ID'];
+      final webClientId =
+          "195312450091-sfdcdrfp84uv4mtmskhl7qu5o9n77cq8.apps.googleusercontent.com";
+      final iosClientId =
+          "195312450091-f93fldtnilcjc1fsl3abljh9vqbv7njj.apps.googleusercontent.com";
 
       final GoogleSignIn googleSignIn =
           GoogleSignIn(clientId: iosClientId, serverClientId: webClientId);

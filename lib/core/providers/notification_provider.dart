@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/notification_service.dart';
 
@@ -15,8 +16,8 @@ class NotificationNotifier extends StateNotifier<bool> {
     state = await NotificationService.areNotificationsEnabled();
   }
 
-  Future<void> toggleNotifications() async {
-    await NotificationService.openSettings();
+  Future<void> toggleNotifications(BuildContext context) async {
+    await NotificationService.requestPermissions(context);
     await Future.delayed(const Duration(milliseconds: 500));
     state = await NotificationService.areNotificationsEnabled();
   }

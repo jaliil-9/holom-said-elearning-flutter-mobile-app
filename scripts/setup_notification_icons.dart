@@ -47,6 +47,4 @@ void main() async {
       .copySync(path.join(mainDrawableDir.path, 'ic_stat_notification.png'));
   notificationIcon
       .copySync(path.join(mainDrawableDir.path, 'ic_notification.png'));
-
-  print('Notification icons setup completed!');
 }

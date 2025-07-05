@@ -9,6 +9,7 @@ import '../../../../../core/utils/validators.dart';
 import '../../../../../generated/l10n.dart';
 import '../../models/trainers_model.dart';
 import '../../providers/trainers_provider.dart';
+import '../../../../../core/services/storage_service.dart';
 
 class TrainerFormPage extends ConsumerStatefulWidget {
   final Trainer? trainer;
@@ -48,6 +49,9 @@ class _TrainerFormPageState extends ConsumerState<TrainerFormPage> {
   }
 
   Future<void> _pickImage() async {
+    final hasPermission = await StorageService.requestStoragePermission(context);
+    if (!hasPermission) return;
+
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 

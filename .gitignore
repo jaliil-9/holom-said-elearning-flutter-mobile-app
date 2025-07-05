@@ -95,3 +95,6 @@ coverage/
 
 # Local Storage
 .local/
+
+# Signing keys
+key.properties

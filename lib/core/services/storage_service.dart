@@ -1,36 +1,43 @@
 import 'package:permission_handler/permission_handler.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io';
 import '../utils/helper_methods/error.dart';
 import '../../../generated/l10n.dart';
 
+import 'package:flutter/material.dart';
+import 'package:holom_said/core/utils/permission_dialog.dart';
+
 class StorageService {
-  static Future<bool> requestStoragePermission() async {
+  static Future<bool> requestStoragePermission(BuildContext context) async {
     try {
       if (Platform.isAndroid) {
-        if (Platform.version.contains('13')) {
-          // For Android 13 and above, request photos permission
-          final photosStatus = await Permission.photos.request();
-          if (photosStatus.isDenied) {
-            ErrorUtils.showErrorSnackBar(S.current.mediaPermissionDenied);
-            return false;
-          }
-          return photosStatus.isGranted;
+        final deviceInfo = DeviceInfoPlugin();
+        final androidInfo = await deviceInfo.androidInfo;
+        final sdkVersion = androidInfo.version.sdkInt;
+
+        if (sdkVersion >= 33) {
+          // Android 13 or higher
+          return await PermissionManager.requestPermissionWithDialog(
+            context,
+            permission: Permission.photos,
+            title: S.of(context).mediaPermissionTitle,
+            content: S.of(context).mediaPermissionBody,
+          );
         } else {
-          // For Android 12 and below, request storage permission
-          final storageStatus = await Permission.storage.request();
-          if (storageStatus.isDenied) {
-            ErrorUtils.showErrorSnackBar(S.current.storagePermissionDenied);
-            return false;
-          }
-          return storageStatus.isGranted;
+          return await PermissionManager.requestPermissionWithDialog(
+            context,
+            permission: Permission.storage,
+            title: S.of(context).storagePermissionTitle,
+            content: S.of(context).storagePermissionBody,
+          );
         }
       } else if (Platform.isIOS) {
-        final photosStatus = await Permission.photos.request();
-        if (photosStatus.isDenied) {
-          ErrorUtils.showErrorSnackBar(S.current.mediaPermissionDenied);
-          return false;
-        }
-        return photosStatus.isGranted;
+        return await PermissionManager.requestPermissionWithDialog(
+          context,
+          permission: Permission.photos,
+          title: S.of(context).mediaPermissionTitle,
+          content: S.of(context).mediaPermissionBody,
+        );
       }
       return false;
     } catch (e) {

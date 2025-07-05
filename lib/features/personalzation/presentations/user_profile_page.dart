@@ -54,7 +54,7 @@ class ProfilePage extends ConsumerWidget {
                         end: Alignment.bottomLeft,
                         colors: [
                           Theme.of(context).primaryColor,
-                          Theme.of(context).primaryColor.withOpacity(0.7),
+                          Theme.of(context).primaryColor.withValues(alpha: 0.7),
                         ],
                       ),
                     ),
@@ -211,7 +211,7 @@ class ProfilePage extends ConsumerWidget {
                                       value: notificationsEnabled,
                                       onChanged: (value) => ref
                                           .read(notificationProvider.notifier)
-                                          .toggleNotifications(),
+                                          .toggleNotifications(context),
                                     ),
                             ],
                           ),

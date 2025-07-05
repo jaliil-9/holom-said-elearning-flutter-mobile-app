@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:holom_said/core/constants/colors.dart';
 import 'package:holom_said/core/constants/sizes.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../../core/services/storage_service.dart';
 import '../../../../core/utils/helper_methods/error.dart';
 import '../../../../core/utils/validators.dart';
 import '../../../../generated/l10n.dart';
@@ -51,6 +52,10 @@ class _CourseFormPageState extends ConsumerState<CourseFormPage> {
   }
 
   Future<void> _pickThumbnail() async {
+    final hasPermission =
+        await StorageService.requestStoragePermission(context);
+    if (!hasPermission) return;
+
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 

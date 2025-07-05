@@ -5,6 +5,8 @@ import 'package:holom_said/core/utils/widgets/circular_container.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:holom_said/core/services/notification_service.dart';
 
 import '../../../../generated/l10n.dart';
 import '../../content/providers/courses_provider.dart';
@@ -26,6 +28,12 @@ class AdminHomePage extends ConsumerStatefulWidget {
 }
 
 class _AdminHomePageState extends ConsumerState<AdminHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    NotificationService.init(Supabase.instance.client);
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

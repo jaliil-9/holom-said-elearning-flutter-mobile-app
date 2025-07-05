@@ -334,5 +334,12 @@
     "invalidSubscriptionCode": "رمز اشتراك غير صالح",
     "subsriptionVerified": "تم التحقق من الاشتراك",
     "verificationError": "حدث خطأ أثناء التحقق",
-    "needHelp": "هل تحتاج مساعدة مع الرمز؟"
+    "needHelp": "هل تحتاج مساعدة مع الرمز؟",
+    "allow": "السماح",
+    "mediaPermissionTitle": "إذن الوصول إلى الملفات",
+    "mediaPermissionBody": "يحتاج التطبيق إلى إذن للوصول إلى ملفات الوسائط",
+    "storagePermissionTitle": "إذن الوصول إلى التخزين",
+    "storagePermissionBody": "يحتاج التطبيق إلى إذن للوصول إلى التخزين",
+    "notificationPermissionTitle": "إذن الإشعارات",
+    "notificationPermissionBody": "يحتاج التطبيق إلى إذن لإرسال الإشعارات"
 }

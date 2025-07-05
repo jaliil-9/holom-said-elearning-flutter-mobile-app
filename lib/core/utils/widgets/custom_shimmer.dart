@@ -13,10 +13,10 @@ class CustomShimmer extends StatefulWidget {
   });
 
   @override
-  _CustomShimmerState createState() => _CustomShimmerState();
+  CustomShimmerState createState() => CustomShimmerState();
 }
 
-class _CustomShimmerState extends State<CustomShimmer>
+class CustomShimmerState extends State<CustomShimmer>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

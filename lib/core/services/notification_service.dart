@@ -1,4 +1,5 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:holom_said/core/utils/permission_dialog.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:io';
@@ -52,7 +53,7 @@ class NotificationService {
     );
 
     // Now request permissions
-    await _requestPermissions();
+    await requestPermissions(ErrorUtils.navigatorKey.currentContext!);
 
     if (_supabase.auth.currentUser != null) {
       // Get user role
@@ -65,17 +66,18 @@ class NotificationService {
     _initialized = true;
   }
 
-  static Future<void> _requestPermissions() async {
+  static Future<bool> requestPermissions(BuildContext context) async {
     if (Platform.isAndroid) {
-      final notificationStatus = await Permission.notification.status;
-      if (notificationStatus.isDenied) {
-        final result = await Permission.notification.request();
-        if (result.isDenied) {
-          ErrorUtils.showErrorSnackBar(S.current.notificationsPermissionDenied);
-        }
-      }
+      return await PermissionManager.requestPermissionWithDialog(
+        context,
+        permission: Permission.notification,
+        title: S.of(context).notificationPermissionTitle,
+        content: S.of(context).notificationPermissionBody,
+      );
     } else if (Platform.isIOS) {
-      final notificationSettings = await _notifications
+      // On iOS, the requestPermissions method from flutter_local_notifications shows its own dialog.
+      // You can customize the explanation in the Info.plist file.
+      final bool? result = await _notifications
           .resolvePlatformSpecificImplementation<
               IOSFlutterLocalNotificationsPlugin>()
           ?.requestPermissions(
@@ -83,28 +85,7 @@ class NotificationService {
             badge: true,
             sound: true,
           );
-
-      if (notificationSettings == false) {
-        ErrorUtils.showErrorSnackBar(S.current.notificationsPermissionDenied);
-      }
-    }
-  }
-
-  static Future<bool> requestPermissions() async {
-    if (Platform.isAndroid) {
-      return await Permission.notification
-          .request()
-          .then((status) => status.isGranted);
-    } else if (Platform.isIOS) {
-      return await _notifications
-              .resolvePlatformSpecificImplementation<
-                  IOSFlutterLocalNotificationsPlugin>()
-              ?.requestPermissions(
-                alert: true,
-                badge: true,
-                sound: true,
-              ) ??
-          false;
+      return result ?? false;
     }
     return false;
   }
@@ -158,8 +139,6 @@ class NotificationService {
   }
 
   static Future<void> showNotification(String title, String body) async {
-    print('Attempting to show notification: $title - $body');
-
     try {
       final androidDetails = AndroidNotificationDetails(
         'default_channel',
@@ -187,10 +166,7 @@ class NotificationService {
         body,
         details,
       );
-      print('Notification shown successfully');
-    } catch (e) {
-      print('Error showing notification: $e');
-    }
+    } catch (e) {}
   }
 
   // Add method to mark notification as read
