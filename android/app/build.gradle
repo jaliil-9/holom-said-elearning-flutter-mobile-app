@@ -36,7 +36,7 @@ android {
     defaultConfig {
         applicationId "org.holomsaid.elearning"
         minSdkVersion flutter.minSdkVersion
-        targetSdkVersion 34
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutter.versionCode
         versionName flutter.versionName
         multiDexEnabled true
@@ -54,6 +54,7 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'consumer-rules.pro'
         }
     }
 
