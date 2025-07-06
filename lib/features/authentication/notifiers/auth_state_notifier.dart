@@ -6,6 +6,7 @@ import 'package:holom_said/core/utils/helper_methods/network.dart';
 import 'package:holom_said/features/personalzation/repositories/user_repository.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../../core/utils/helper_methods/error.dart';
 import '../../../generated/l10n.dart';
@@ -135,7 +136,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
       final user = response.user;
       if (user == null) throw Exception('User not found');
 
-      final adminDomain = "holomsaid.org";
+      final adminDomain = dotenv.env['ADMIN_EMAIL_DOMAIN'] ?? '';
       // Check email domain for role determination.
       if (user.email != null && user.email!.endsWith('@$adminDomain')) {
         state = AuthAuthenticatedAdmin(user);

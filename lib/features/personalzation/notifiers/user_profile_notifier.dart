@@ -80,7 +80,11 @@ class UserProfileNotifier extends BaseProfileNotifier {
         final currentProfilePicture = state.value?.profilePicture;
 
         // Upload image and get URL
-        final imageUrl = await Helpers.uploadImage(ErrorUtils.navigatorKey.currentContext!);
+        final context = ErrorUtils.navigatorKey.currentContext;
+        if (context == null) {
+          throw Exception('Context not available for permission request');
+        }
+        final imageUrl = await Helpers.uploadImage(context);
         if (imageUrl == null) return state.value;
 
         // Update profile with new image URL
