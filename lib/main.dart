@@ -18,31 +18,20 @@ void main() async {
   widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  print('Before dotenv');
   try {
     await dotenv.load(fileName: ".env");
-    print('Loaded .env');
   } catch (e) {
     debugPrint('Warning: .env file not found or could not be loaded');
   }
 
-  print('Before GetStorage');
   await GetStorage.init();
-  print('GetStorage initialized');
 
-  print('Before Supabase');
   await Supabase.initialize(
     url: dotenv.env['SUPABASE_URL'] ?? '',
     anonKey: dotenv.env['SUPABASE_ANON_KEY'] ?? '',
   );
-  print('Supabase initialized');
-
-  print('Before NotificationService');
-  // await NotificationService.init(Supabase.instance.client);
-  print('NotificationService initialization moved to home screen');
 
   FlutterNativeSplash.remove();
-  print('Splash removed');
 
   runApp(
     const ProviderScope(
